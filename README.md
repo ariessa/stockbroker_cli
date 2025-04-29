@@ -1,12 +1,11 @@
 # Stockbroker CLI
 
-A command-line tool for managing a stockbroker's trade book.
+Stockbroker CLI is a command-line tool for managing a stockbroker's trade book. It allows the user to record buy and sell trades, adjusting the volume of existing orders when necessary or creating new records if no matching trade exists. It also persist trade information in a file called `orders.csv`, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user. It can be run in batch mode or interactive mode.
 
 <br />
 
 ## Table of Contents
 
-- [Introduction](#introduction)
 - [Run in Batch Mode](#run-in-batch-mode)
 - [Run in Interactive Mode](#run-in-interactive-mode)
 - [Interactive Mode Commands](#interactive-mode-commands)
@@ -16,43 +15,8 @@ A command-line tool for managing a stockbroker's trade book.
     - [Help](#help)
     - [History](#history)
     - [Exit](#exit)
+- [Example of Input Validation with Error Messages](#example-of-input-validation-with-error-messages)
 - [License](#license)
-
-<br />
-
-## Introduction
-
-Stockbroker CLI is a command-line tool designed to help stockbrokers manage trade orders from investors. The tool allows the user to record buy and sell trades, adjusting the volume of existing orders when necessary or creating new records if no matching trade exists.
-
-The CLI tool persists trade information in a file called orders.csv, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user. It offers two modes of operation:
-
-- [Batch mode](#run-in-batch-mode)
-
-    The script can read a file containing a list of trade orders, automatically processing each line of the file. The file should include the trade type (buy or sell), stock code, trade price, and trade volume.
-
-- [Interactive mode](#run-in-interactive-mode)
-
-    The script can be run interactively in the terminal where the user is prompted to input commands for buying stock, selling stock, viewing help message, viewing recent trades from order book, and viewing a list of available stock codes.
-
-<br />
-
-**Example of input validation with error messages**
-
-- Validate trade type
-
-    <img src="/screenshots/validate_trade_type.png"/>
-
-- Validate stock code
-
-    <img src="/screenshots/validate_stock_code.png"/>
-
-- Validate price
-
-    <img src="/screenshots/validate_price.png"/>
-
-- Validate volume
-
-    <img src="/screenshots/validate_volume.png"/>
 
 <br />
 
@@ -301,6 +265,26 @@ exit
 **Sample Output**
 
 <img src="/screenshots/interactive_mode_exit.png"/>
+
+<br />
+
+## Example of Input Validation with Error Messages
+
+- Validate trade type
+
+    <img src="/screenshots/validate_trade_type.png"/>
+
+- Validate stock code
+
+    <img src="/screenshots/validate_stock_code.png"/>
+
+- Validate price
+
+    <img src="/screenshots/validate_price.png"/>
+
+- Validate volume
+
+    <img src="/screenshots/validate_volume.png"/>
 
 <br />
 
