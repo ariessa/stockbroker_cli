@@ -9,7 +9,7 @@
 ## Table of Contents
 
 - [Technical Test](#technical-test)
-- [Solution - Stockbroker CLI](#solution---stockbroker-cli)
+- [Solution](#solution)
     - [Run in Batch Mode](#run-in-batch-mode)
         - [Usage](#usage)
         - [Example](#example)
@@ -136,16 +136,19 @@ Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trad
 
 <br />
 
-## Solution - Stockbroker CLI
+## Solution
 
-The Stockbroker CLI is a lightweight, Bash-based command-line tool for managing stock trade orders. It allows stockbrokers to record and update trades in a structured trade book, either interactively or in batch mode. Each trade includes the trade type (buy or sell), stock code, price, and volume.
+Stockbroker CLI is a command-line tool designed to help stockbrokers manage trade orders from investors. The tool allows the user to record buy and sell trades, adjusting the volume of existing orders when necessary or creating new records if no matching trade exists. It offers two modes of operation:
 
-The CLI tool ensures data integrity by validating stock codes against a known list and persistently storing trades. It's ideal for tracking and aggregating trading activity in a simplified, scriptable format.
+- [Interactive mode](#run-in-interactive-mode)
 
-It can be run in two modes: 
+    The script can be run interactively in the terminal where the user is prompted to input commands for buying, selling, and viewing help.
 
 - [Batch mode](#run-in-batch-mode)
-- [Interactive mode](#run-in-interactive-mode)
+
+    The script can read a file containing a list of trade orders, automatically processing each line of the file. The file should include the trade action (buy or sell), stock code, trade price, and trade volume.
+
+The CLI tool persists trade information in a file called orders.csv, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user.
 
 <br />
 
@@ -203,7 +206,7 @@ bash stockbroker.sh files/orders.txt
 
 ### Run in Interactive Mode
 
-Running the script in interactive mode will add a new trade inside the order book.
+Running the script in interactive mode 
 
 <br />
 
