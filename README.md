@@ -9,20 +9,18 @@
 ## Table of Contents
 
 - [Technical Test](#technical-test)
-    - [Overview](#overview)
-    - [Problem Statement](#problem-statement)
-    - [Constraints](#constraints)
-    - [Examples](#examples)
-- [Run the Script](#run-the-script)
-    - [Run in Batch Mode](#run-in-batch-mode)
-    - [Run in Interactive Mode](#run-in-interactive-mode)
+- [Solution](#solution)
+    - [Run Stockbroker CLI](#run-stockbroker-cli)
+        - [Run in Batch Mode](#run-in-batch-mode)
+        - [Run in Interactive Mode](#run-in-interactive-mode)
 - [License](#license)
 
 <br />
 
 ## Technical Test
 
-### Overview
+<details>
+<summary>Overview</summary>
 
 A stockbroker needs to keep track of trade coming from investors and record them to trade books. If there is any existing trade book for any incoming order, then the stockbroker needs to increase or decrease the volume of the order. If there’s no existing trade book, then the stockbroker needs to create one.
 
@@ -33,9 +31,10 @@ A trade book is a record entry, which has the following data:
 - Trade price
 - The volume of the trade
 
-<br />
+</details>
 
-### Problem Statement
+<details>
+<summary>Problem Statement</summary>
 
 Create a command-line application to record incoming trade from investors. To record an order via a command line, a user shall issue a command with parameters of action of the trade (it is either buy or sell), the stock code, the price of the trade, and the volume of the trade.
 
@@ -65,9 +64,10 @@ buy,AAPL,1000.00,100
 sell,AAPL,1000.10,10
 ```
 
-<br />
+</details>
 
-### Constraints
+<details>
+<summary>Constraints</summary>
 
 - Stock code is a 4 letter code.
 - Stock code is all upper case.
@@ -75,9 +75,10 @@ sell,AAPL,1000.10,10
 - A trade volume is a number between 1 to 1,000,000.
 - The application must be invoked by calling `stockbroker.sh` Linux shell, or `stockbroker.bat` on Windows.
 
-<br />
+</details>
 
-### Examples
+<details>
+<summary>Examples</summary>
 
 Example of invoking the application by supplying a file path to read:
 
@@ -101,9 +102,19 @@ Trade book added.
 
 Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trade price, and finally, `100` is the volume of the trade.
 
+</details>
+
 <br />
 
-## Run the Script
+## Solution
+
+The Stockbroker CLI is a lightweight, Bash-based command-line tool for managing stock trade orders. It allows stockbrokers to record and update trades in a structured trade book, either interactively or in batch mode. Each trade includes the action (buy or sell), stock code, price, and volume.
+
+The CLI tool ensures data integrity by validating stock codes against a known list and persistently storing trades. It's ideal for tracking and aggregating trading activity in a simplified, scriptable format.
+
+<br />
+
+### Run Stockbroker CLI
 
 Stockbroker CLI can be run in two modes: 
 
@@ -112,7 +123,7 @@ Stockbroker CLI can be run in two modes:
 
 <br />
 
-### Run in Batch Mode
+#### Run in Batch Mode
 
 Running the script in batch mode will add all trades inside the file that is supplied as `<filepath>` into the order book.
 
@@ -134,7 +145,21 @@ bash stockbroker.sh files/orders.txt
 
 <br />
 
-### Run in Interactive Mode
+**Sample**
+
+Input
+
+<img src="/screenshots/batch_mode_input.png"/>
+
+<br />
+
+Output
+
+<img src="/screenshots/batch_mode_input.png"/>
+
+<br />
+
+#### Run in Interactive Mode
 
 Running the script in interactive mode will add a new trade inside the order book.
 
@@ -159,6 +184,244 @@ bash stockbroker.sh
 
 <br />
 
-## LICENSE
+**Sample**
+
+- With flag
+
+    Input
+
+    <img src="/screenshots/interactive_mode_input_flag.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_output_flag.png"/>
+
+    <br />
+
+- Without flag
+
+    Input
+
+    <img src="/screenshots/interactive_mode_input_no_flag.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_output_no_flag.png"/>
+
+<br />
+
+#### Interactive Mode Commands
+
+<details>
+<summary>buy</summary>
+
+- Description
+
+    Record a new buy order or update volume of existing order.
+
+- Usage
+
+    ```bash
+    buy <stock_code> <price> <volume>
+    ```
+
+- Example
+
+    ```bash
+    buy GOOGL 1000.00 100
+    ```
+
+- Sample
+
+    Input
+
+    <img src="/screenshots/interactive_mode_buy_input.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_buy_output.png"/>
+
+    <br />
+</details> 
+
+<details>
+<summary>sell</summary>
+
+- Description
+
+    Record a new sell order or update volume of existing order.
+
+- Usage
+
+    ```bash
+    sell <stock_code> <price> <volume>
+    ```
+
+- Example
+
+    ```bash
+    sell AAPL 1000.00 100
+    ```
+
+- Sample
+
+    Input
+
+    <img src="/screenshots/interactive_mode_sell_input.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_sell_output.png"/>
+
+    <br /> 
+</details> 
+
+<details>
+<summary>stocks</summary>
+
+- Description
+
+    Show list of available stock codes.
+
+- Usage
+
+    ```bash
+    stocks
+    ```
+
+- Example
+
+    ```bash
+    stocks
+    ```
+
+- Sample
+
+    Input
+
+    <img src="/screenshots/interactive_mode_stocks_input.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_stocks_output.png"/>
+
+    <br />
+</details>
+
+<details>
+<summary>help</summary>
+
+- Description
+
+    Show help message.
+
+- Usage
+
+    ```bash
+    help                                   
+    ```
+
+- Example
+
+    ```bash
+    help
+    ```
+
+- Sample
+
+    Input
+
+    <img src="/screenshots/interactive_mode_help_input.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_help_output.png"/>
+
+    <br />
+</details>
+
+<details>
+<summary>history</summary>
+
+- Description
+
+    Show list of recent trades from order book.
+
+- Usage
+
+    ```bash
+    history
+    ```
+
+- Example
+
+    ```bash
+    history
+    ```
+
+- Sample
+
+    Input
+
+    <img src="/screenshots/interactive_mode_history_input.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_history_output.png"/>
+
+    <br />
+</details>
+
+<details>
+<summary>exit</summary>
+
+- Description
+
+    Exit the program.
+
+- Usage
+
+    ```bash
+    exit                                   
+    ```
+
+- Example
+
+    ```bash
+    exit
+    ```
+
+- Sample
+
+    Input
+
+    <img src="/screenshots/interactive_mode_exit_input.png"/>
+
+    <br />
+
+    Output
+
+    <img src="/screenshots/interactive_mode_exit_output.png"/>
+
+    <br />
+</details> 
+
+<br />
+
+## License
 
 Stockbroker CLI is licensed under the [GNU GPLv3 License](LICENSE).
