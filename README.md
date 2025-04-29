@@ -185,12 +185,13 @@ bash stockbroker.sh files/orders.txt
 ### Run in Interactive Mode
 
 Running the script in interactive mode allows user to input the following commands:
-    - [buy](#buy)
-    - [sell](#sell)
-    - [stocks](#stocks)
-    - [help](#help)
-    - [history](#history)
-    - [exit](#exit)
+
+- [buy](#buy)
+- [sell](#sell)
+- [stocks](#stocks)
+- [help](#help)
+- [history](#history)
+- [exit](#exit)
 
 <br />
 
