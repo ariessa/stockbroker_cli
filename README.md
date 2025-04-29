@@ -9,10 +9,40 @@
 ## Table of Contents
 
 - [Technical Test](#technical-test)
-- [Solution](#solution)
-    - [Run Stockbroker CLI](#run-stockbroker-cli)
-        - [Run in Batch Mode](#run-in-batch-mode)
-        - [Run in Interactive Mode](#run-in-interactive-mode)
+- [Solution - Stockbroker CLI](#solution---stockbroker-cli)
+    - [Run in Batch Mode](#run-in-batch-mode)
+        - [Usage](#usage)
+        - [Example](#example)
+        - [Sample](#sample)
+    - [Run in Interactive Mode](#run-in-interactive-mode)
+        - [Usage](#usage-1)
+        - [Example](#example-1)
+        - [Sample](#sample-1)
+        - [Interactive Mode Commands](#interactive-mode-commands)
+            - [Buy](#buy)
+                - [Usage](#usage-2)
+                - [Example](#example-2)
+                - [Sample](#sample-2)
+            - [Sell](#sell)
+                - [Usage](#usage-3)
+                - [Example](#example-3)
+                - [Sample](#sample-3)
+            - [Stocks](#stocks)
+                - [Usage](#usage-4)
+                - [Example](#example-4)
+                - [Sample](#sample-4)
+            - [Help](#help)
+                - [Usage](#usage-5)
+                - [Example](#example-5)
+                - [Sample](#sample-5)
+            - [History](#history)
+                - [Usage](#usage-6)
+                - [Example](#example-6)
+                - [Sample](#sample-6)
+            - [Exit](#exit)
+                - [Usage](#usage-7)
+                - [Example](#example-7)
+                - [Sample](#sample-7)
 - [License](#license)
 
 <br />
@@ -106,30 +136,30 @@ Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trad
 
 <br />
 
-## Solution
+## Solution - Stockbroker CLI
 
 The Stockbroker CLI is a lightweight, Bash-based command-line tool for managing stock trade orders. It allows stockbrokers to record and update trades in a structured trade book, either interactively or in batch mode. Each trade includes the action (buy or sell), stock code, price, and volume.
 
 The CLI tool ensures data integrity by validating stock codes against a known list and persistently storing trades. It's ideal for tracking and aggregating trading activity in a simplified, scriptable format.
 
-<br />
-
-### Run Stockbroker CLI
-
-Stockbroker CLI can be run in two modes: 
+It can be run in two modes: 
 
 - [Batch mode](#run-in-batch-mode)
 - [Interactive mode](#run-in-interactive-mode)
 
 <br />
 
-#### Run in Batch Mode
+### Run in Batch Mode
 
-Running the script in batch mode will add all trades inside the file that is supplied as `<filepath>` into the order book.
+Running the script in batch mode will add all orders inside the file that is supplied as `<filepath>` into the order book.
+
+If there is an existing order that matches the trade type, stock code, and price, it will update the volume of the existing order.
+
+Otherwise, it will add new order into the order book.
 
 <br />
 
-**Usage**
+#### Usage
 
 ```bash
 bash stockbroker.sh <filepath>
@@ -137,7 +167,7 @@ bash stockbroker.sh <filepath>
 
 <br />
 
-**Example**
+#### Example
 
 ```bash
 bash stockbroker.sh files/orders.txt
@@ -145,27 +175,27 @@ bash stockbroker.sh files/orders.txt
 
 <br />
 
-**Sample**
+#### Sample
 
-Input
-
-<img src="/screenshots/batch_mode_input.png"/>
-
-<br />
-
-Output
+**Input**
 
 <img src="/screenshots/batch_mode_input.png"/>
 
 <br />
 
-#### Run in Interactive Mode
+**Output**
+
+<img src="/screenshots/batch_mode_input.png"/>
+
+<br />
+
+### Run in Interactive Mode
 
 Running the script in interactive mode will add a new trade inside the order book.
 
 <br />
 
-**Usage**
+#### Usage
 
 ```bash
 bash stockbroker.sh <flag>
@@ -174,7 +204,7 @@ bash stockbroker.sh
 
 <br />
 
-**Example**
+#### Example
 
 ```bash
 bash stockbroker.sh --help
@@ -184,241 +214,251 @@ bash stockbroker.sh
 
 <br />
 
-**Sample**
+#### Sample
 
-- With flag
+##### With Flag
 
-    Input
+**Input**
 
-    <img src="/screenshots/interactive_mode_input_flag.png"/>
+<img src="/screenshots/interactive_mode_input_flag.png"/>
 
-    <br />
+<br />
 
-    Output
+**Output**
 
-    <img src="/screenshots/interactive_mode_output_flag.png"/>
+<img src="/screenshots/interactive_mode_output_flag.png"/>
 
-    <br />
+<br />
 
-- Without flag
+##### Without Flag
 
-    Input
+**Input**
 
-    <img src="/screenshots/interactive_mode_input_no_flag.png"/>
+<img src="/screenshots/interactive_mode_input_no_flag.png"/>
 
-    <br />
+<br />
 
-    Output
+**Output**
 
-    <img src="/screenshots/interactive_mode_output_no_flag.png"/>
+<img src="/screenshots/interactive_mode_output_no_flag.png"/>
 
 <br />
 
 #### Interactive Mode Commands
 
-<details>
-<summary>buy</summary>
+##### Buy
 
-- Description
+Record a new buy order or update volume of existing buy order that matches stock code and price..
 
-    Record a new buy order or update volume of existing order.
+<br />
 
-- Usage
+###### Usage
 
-    ```bash
-    buy <stock_code> <price> <volume>
-    ```
+```bash
+buy <stock_code> <price> <volume>
+```
 
-- Example
+<br />
 
-    ```bash
-    buy GOOGL 1000.00 100
-    ```
+###### Example
 
-- Sample
+```bash
+buy GOOGL 1000.00 100
+```
 
-    Input
+<br />
 
-    <img src="/screenshots/interactive_mode_buy_input.png"/>
+###### Sample
 
-    <br />
+**Input**
 
-    Output
+<img src="/screenshots/interactive_mode_buy_input.png"/>
 
-    <img src="/screenshots/interactive_mode_buy_output.png"/>
+<br />
 
-    <br />
-</details> 
+**Output**
 
-<details>
-<summary>sell</summary>
+<img src="/screenshots/interactive_mode_buy_output.png"/>
 
-- Description
+<br />
 
-    Record a new sell order or update volume of existing order.
+##### Sell
 
-- Usage
+Record a new sell order or update volume of existing sell order that matches stock code and price.
 
-    ```bash
-    sell <stock_code> <price> <volume>
-    ```
+<br />
 
-- Example
+###### Usage
 
-    ```bash
-    sell AAPL 1000.00 100
-    ```
+```bash
+sell <stock_code> <price> <volume>
+```
 
-- Sample
+<br />
 
-    Input
+###### Example
 
-    <img src="/screenshots/interactive_mode_sell_input.png"/>
+```bash
+sell AAPL 1000.00 100
+```
 
-    <br />
+<br />
 
-    Output
+###### Sample
 
-    <img src="/screenshots/interactive_mode_sell_output.png"/>
+**Input**
 
-    <br /> 
-</details> 
+<img src="/screenshots/interactive_mode_sell_input.png"/>
 
-<details>
-<summary>stocks</summary>
+<br />
 
-- Description
+**Output**
 
-    Show list of available stock codes.
+<img src="/screenshots/interactive_mode_sell_output.png"/>
 
-- Usage
+<br /> 
 
-    ```bash
-    stocks
-    ```
+##### Stocks
 
-- Example
+Show a list of available stock codes.
 
-    ```bash
-    stocks
-    ```
+<br /> 
 
-- Sample
+###### Usage
 
-    Input
+```bash
+stocks
+```
 
-    <img src="/screenshots/interactive_mode_stocks_input.png"/>
+<br />
 
-    <br />
+###### Example
 
-    Output
+```bash
+stocks
+```
 
-    <img src="/screenshots/interactive_mode_stocks_output.png"/>
+<br />
 
-    <br />
-</details>
+###### Sample
 
-<details>
-<summary>help</summary>
+**Input**
 
-- Description
+<img src="/screenshots/interactive_mode_stocks_input.png"/>
 
-    Show help message.
+<br />
 
-- Usage
+**Output**
 
-    ```bash
-    help                                   
-    ```
+<img src="/screenshots/interactive_mode_stocks_output.png"/>
 
-- Example
+<br />
 
-    ```bash
-    help
-    ```
+##### Help
 
-- Sample
+Show help message.
 
-    Input
+<br />
 
-    <img src="/screenshots/interactive_mode_help_input.png"/>
+###### Usage
 
-    <br />
+```bash
+help                                   
+```
 
-    Output
+<br />
 
-    <img src="/screenshots/interactive_mode_help_output.png"/>
+###### Example
 
-    <br />
-</details>
+```bash
+help
+```
 
-<details>
-<summary>history</summary>
+<br />
 
-- Description
+###### Sample
 
-    Show list of recent trades from order book.
+**Input**
 
-- Usage
+<img src="/screenshots/interactive_mode_help_input.png"/>
 
-    ```bash
-    history
-    ```
+<br />
 
-- Example
+**Output**
 
-    ```bash
-    history
-    ```
+<img src="/screenshots/interactive_mode_help_output.png"/>
 
-- Sample
+<br />
 
-    Input
+##### History
 
-    <img src="/screenshots/interactive_mode_history_input.png"/>
+Show list of recent trades from order book.
 
-    <br />
+<br />
 
-    Output
+###### Usage
 
-    <img src="/screenshots/interactive_mode_history_output.png"/>
+```bash
+history
+```
 
-    <br />
-</details>
+<br />
 
-<details>
-<summary>exit</summary>
+###### Example
 
-- Description
+```bash
+history
+```
 
-    Exit the program.
+<br />
 
-- Usage
+###### Sample
 
-    ```bash
-    exit                                   
-    ```
+**Input**
 
-- Example
+<img src="/screenshots/interactive_mode_history_input.png"/>
 
-    ```bash
-    exit
-    ```
+<br />
 
-- Sample
+**Output**
 
-    Input
+<img src="/screenshots/interactive_mode_history_output.png"/>
 
-    <img src="/screenshots/interactive_mode_exit_input.png"/>
+<br />
 
-    <br />
+##### Exit
 
-    Output
+Exit the program.
 
-    <img src="/screenshots/interactive_mode_exit_output.png"/>
+<br />
 
-    <br />
-</details> 
+###### Usage
+
+```bash
+exit                                   
+```
+
+<br />
+
+###### Example
+
+```bash
+exit
+```
+
+<br />
+
+###### Sample
+
+**Input**
+
+<img src="/screenshots/interactive_mode_exit_input.png"/>
+
+<br />
+
+**Output**
+
+<img src="/screenshots/interactive_mode_exit_output.png"/>
 
 <br />
 
