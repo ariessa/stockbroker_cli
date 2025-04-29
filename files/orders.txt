@@ -1,0 +1,4 @@
+buy,GOOGL,50.00,50
+sell,GOOGL,60.00,20
+buy,AAPL,999.99,80
+sell,AAPL,1200.00,10
