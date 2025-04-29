@@ -1,6 +1,6 @@
 # Stockbroker CLI
 
-This repository is a technical test for a Senior Back-end Software Engineer role.
+A command-line tool for managing a stockbroker's trade book.
 
 <br />
 
