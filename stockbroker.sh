@@ -4,29 +4,25 @@
 # Stockbroker CLI
 # Author: Ariessa Norramli
 # Created: 2025-04-29
-# Description: A CLI tool to manage trade orders
+# Description: A command-line tool for managing a stockbroker's trade book.
 # Version: 1.0.0
-# License: GNU GPLv3 License
 # 
-# Description
-#    This script keeps track of trades from investors and store them in the order book.
-#
-# Usage
-#    Batch mode
+# Usage:
+#    Batch mode:
 #        bash stockbroker.sh <filepath>
-#    Interactive mode
+#    Interactive mode:
 #        bash stockbroker.sh <flag>
 #        bash stockbroker.sh
 #
-# Arguments
-#    Batch mode
+# Arguments:
+#    Batch mode:
 #        <filepath>                         A list of trade type, stock code, price and volume.
 #           files/orders.txt                The file should have either space-separated values or comma-separated values.
-#    Interactive mode
+#    Interactive mode:
 #        <flag>                             A flag to display help message.
 #           -h, --help
 #
-# Commands (interactive mode only)
+# Commands (interactive mode only):
 #    buy <stock_code> <price> <volume>      Record a new buy order or update volume of existing order.
 #    sell <stock_code> <price> <volume>     Record a new sell order or update volume of existing order.
 #    stocks                                 Show list of available stock codes.
@@ -34,15 +30,15 @@
 #    history                                Show list of recent trades from order book.
 #    exit                                   Exit the program.
 #
-# Example
-#    Batch mode
+# Example:
+#    Batch mode:
 #        $ bash stockbroker.sh files/orders.txt
-#    Interactive mode
+#    Interactive mode:
 #        $ bash stockbroker.sh --help
 #        $ bash stockbroker.sh -h
 #        $ bash stockbroker.sh
 #        
-#        Inside interactive mode only
+#        Inside interactive mode only:
 #            $ buy GOOGL 1000.00 100
 #            $ sell AAPL 1000.00 100
 #            $ stocks
@@ -50,9 +46,28 @@
 #            $ history
 #            $ exit
 #
-# Note
+# Note:
 #     All files used in this script must have an extra line after the last element.
+#
+# License: GNU GPLv3
 # ============================================
+# 
+# Copyright (c) 2025 Ariessa Norramli
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+# ============================================
+
 
 # Colours
 RED='\033[0;31m'

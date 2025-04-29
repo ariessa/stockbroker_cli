@@ -49,6 +49,8 @@ The second mode is when the application is invoked with 1 parameter. The paramet
 
 The application persists the data into files. The application shall read two files, `stockcode.csv` and `orders.csv`. The application shall read the files on start-up. The file `stockcode.csv` contains all the valid stock codes, one stock code per line. The file `orders.csv` contains trade orders, one trade book per line. That means each line has the trade action, stock code, trade price, and trade volume, separated by commas.
 
+<br />
+
 A sample of 2 lines in file `stockcode.csv`:
 
 ```
@@ -105,14 +107,16 @@ Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trad
 
 Stockbroker CLI can be run in two modes: 
 
-    - Batch mode
-    - Interactive mode
+- [Batch mode](#run-in-batch-mode)
+- [Interactive mode](#run-in-interactive-mode)
 
 <br />
 
 ### Run in Batch Mode
 
 Running the script in batch mode will add all trades inside the file that is supplied as `<filepath>` into the order book.
+
+<br />
 
 **Usage**
 
@@ -133,6 +137,8 @@ bash stockbroker.sh files/orders.txt
 ### Run in Interactive Mode
 
 Running the script in interactive mode will add a new trade inside the order book.
+
+<br />
 
 **Usage**
 
