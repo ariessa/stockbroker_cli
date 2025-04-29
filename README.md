@@ -138,17 +138,19 @@ Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trad
 
 ## Solution
 
-Stockbroker CLI is a command-line tool designed to help stockbrokers manage trade orders from investors. The tool allows the user to record buy and sell trades, adjusting the volume of existing orders when necessary or creating new records if no matching trade exists. It offers two modes of operation:
+Stockbroker CLI is a command-line tool designed to help stockbrokers manage trade orders from investors. The tool allows the user to record buy and sell trades, adjusting the volume of existing orders when necessary or creating new records if no matching trade exists.
 
-- [Interactive mode](#run-in-interactive-mode)
+The CLI tool persists trade information in a file called orders.csv, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user.
 
-    The script can be run interactively in the terminal where the user is prompted to input commands for buying, selling, and viewing help.
+It offers two modes of operation:
 
 - [Batch mode](#run-in-batch-mode)
 
     The script can read a file containing a list of trade orders, automatically processing each line of the file. The file should include the trade action (buy or sell), stock code, trade price, and trade volume.
 
-The CLI tool persists trade information in a file called orders.csv, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user.
+- [Interactive mode](#run-in-interactive-mode)
+
+    The script can be run interactively in the terminal where the user is prompted to input commands for buying, selling, and viewing help.
 
 <br />
 
@@ -176,9 +178,7 @@ The CLI tool persists trade information in a file called orders.csv, and verifie
 
 Running the script in batch mode will add all orders inside the file that is supplied as `<filepath>` into the order book.
 
-If there is an existing order that matches the trade type, stock code, and price, it will update the volume of the existing order.
-
-Otherwise, it will add new order into the order book.
+If there is an existing order that matches the trade type, stock code, and price, it will update the volume of the existing order. Otherwise, it will add new order into the order book.
 
 <br />
 
