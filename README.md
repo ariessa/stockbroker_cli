@@ -1,8 +1,6 @@
-<h1 align="center">Stockbroker CLI</h1>
+# Stockbroker CLI
 
-<p align="center">  
-💻 This repository is a technical test for a Senior Back-end Software Engineer role.
-</p>
+This repository is a technical test for a Senior Back-end Software Engineer role.
 
 <br />
 
