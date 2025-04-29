@@ -138,7 +138,7 @@ Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trad
 
 ## Solution - Stockbroker CLI
 
-The Stockbroker CLI is a lightweight, Bash-based command-line tool for managing stock trade orders. It allows stockbrokers to record and update trades in a structured trade book, either interactively or in batch mode. Each trade includes the action (buy or sell), stock code, price, and volume.
+The Stockbroker CLI is a lightweight, Bash-based command-line tool for managing stock trade orders. It allows stockbrokers to record and update trades in a structured trade book, either interactively or in batch mode. Each trade includes the trade type (buy or sell), stock code, price, and volume.
 
 The CLI tool ensures data integrity by validating stock codes against a known list and persistently storing trades. It's ideal for tracking and aggregating trading activity in a simplified, scriptable format.
 
@@ -146,6 +146,26 @@ It can be run in two modes:
 
 - [Batch mode](#run-in-batch-mode)
 - [Interactive mode](#run-in-interactive-mode)
+
+<br />
+
+**Example of input validation with error messages**
+
+- Validate trade type
+
+<img src="/screenshots/validate_trade_type.png"/>
+
+- Validate stock code
+
+<img src="/screenshots/validate_stock_code.png"/>
+
+- Validate price
+
+<img src="/screenshots/validate_price.png"/>
+
+- Validate volume
+
+<img src="/screenshots/validate_volume.png"/>
 
 <br />
 
@@ -175,17 +195,9 @@ bash stockbroker.sh files/orders.txt
 
 <br />
 
-#### Sample
+#### Sample Output
 
-**Input**
-
-<img src="/screenshots/batch_mode_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/batch_mode_input.png"/>
+<img src="/screenshots/batch_mode.png"/>
 
 <br />
 
@@ -198,8 +210,8 @@ Running the script in interactive mode will add a new trade inside the order boo
 #### Usage
 
 ```bash
-bash stockbroker.sh <flag>
 bash stockbroker.sh
+bash stockbroker.sh <flag>
 ```
 
 <br />
@@ -207,40 +219,26 @@ bash stockbroker.sh
 #### Example
 
 ```bash
-bash stockbroker.sh --help
-bash stockbroker.sh -h
 bash stockbroker.sh
+bash stockbroker.sh -h
+bash stockbroker.sh --help
 ```
 
 <br />
 
-#### Sample
-
-##### With Flag
-
-**Input**
-
-<img src="/screenshots/interactive_mode_input_flag.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_output_flag.png"/>
-
-<br />
+#### Sample Output
 
 ##### Without Flag
 
-**Input**
-
-<img src="/screenshots/interactive_mode_input_no_flag.png"/>
+<img src="/screenshots/interactive_mode_no_flag.png"/>
 
 <br />
 
-**Output**
+##### With Flag
 
-<img src="/screenshots/interactive_mode_output_no_flag.png"/>
+<img src="/screenshots/interactive_mode_flag_1.png"/>
+
+<img src="/screenshots/interactive_mode_flag_2.png"/>
 
 <br />
 
@@ -263,22 +261,15 @@ buy <stock_code> <price> <volume>
 ###### Example
 
 ```bash
-buy GOOGL 1000.00 100
+buy AAPL 999.99 99
+buy AAPL 1000.00 100
 ```
 
 <br />
 
-###### Sample
+###### Sample Output
 
-**Input**
-
-<img src="/screenshots/interactive_mode_buy_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_buy_output.png"/>
+<img src="/screenshots/interactive_mode_buy.png"/>
 
 <br />
 
@@ -299,22 +290,15 @@ sell <stock_code> <price> <volume>
 ###### Example
 
 ```bash
-sell AAPL 1000.00 100
+sell AAPL 999.99 99
+sell AAPL 1000.10 100
 ```
 
 <br />
 
-###### Sample
+###### Sample Output
 
-**Input**
-
-<img src="/screenshots/interactive_mode_sell_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_sell_output.png"/>
+<img src="/screenshots/interactive_mode_sell.png"/>
 
 <br /> 
 
@@ -340,17 +324,9 @@ stocks
 
 <br />
 
-###### Sample
+###### Sample Output
 
-**Input**
-
-<img src="/screenshots/interactive_mode_stocks_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_stocks_output.png"/>
+<img src="/screenshots/interactive_mode_stocks.png"/>
 
 <br />
 
@@ -376,17 +352,9 @@ help
 
 <br />
 
-###### Sample
+###### Sample Output
 
-**Input**
-
-<img src="/screenshots/interactive_mode_help_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_help_output.png"/>
+<img src="/screenshots/interactive_mode_help.png"/>
 
 <br />
 
@@ -412,17 +380,9 @@ history
 
 <br />
 
-###### Sample
+###### Sample Output
 
-**Input**
-
-<img src="/screenshots/interactive_mode_history_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_history_output.png"/>
+<img src="/screenshots/interactive_mode_history.png"/>
 
 <br />
 
@@ -448,17 +408,9 @@ exit
 
 <br />
 
-###### Sample
+###### Sample Output
 
-**Input**
-
-<img src="/screenshots/interactive_mode_exit_input.png"/>
-
-<br />
-
-**Output**
-
-<img src="/screenshots/interactive_mode_exit_output.png"/>
+<img src="/screenshots/interactive_mode_exit.png"/>
 
 <br />
 

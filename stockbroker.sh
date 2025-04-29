@@ -211,8 +211,6 @@ display_headers() {
     printf "           Developed by Ariessa Norramli            \n"
     printf "\n"
     printf "====================================================\n\n"
-    printf "      Type 'help' to view available commands.       \n"
-    printf "\n"
 }
 
 save_orders() {
@@ -358,6 +356,9 @@ if [[ $# -eq 1 ]]; then
 
     exit 0
 fi
+
+printf "      Type 'help' to view available commands.       \n"
+printf "\n"
 
 # Interactive mode
 while true; do
