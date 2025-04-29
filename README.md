@@ -9,38 +9,14 @@ This repository is a technical test for a Senior Back-end Software Engineer role
 - [Technical Test](#technical-test)
 - [Solution](#solution)
     - [Run in Batch Mode](#run-in-batch-mode)
-        - [Usage](#usage)
-        - [Example](#example)
-        - [Sample](#sample)
     - [Run in Interactive Mode](#run-in-interactive-mode)
-        - [Usage](#usage-1)
-        - [Example](#example-1)
-        - [Sample](#sample-1)
-        - [Interactive Mode Commands](#interactive-mode-commands)
-            - [Buy](#buy)
-                - [Usage](#usage-2)
-                - [Example](#example-2)
-                - [Sample](#sample-2)
-            - [Sell](#sell)
-                - [Usage](#usage-3)
-                - [Example](#example-3)
-                - [Sample](#sample-3)
-            - [Stocks](#stocks)
-                - [Usage](#usage-4)
-                - [Example](#example-4)
-                - [Sample](#sample-4)
-            - [Help](#help)
-                - [Usage](#usage-5)
-                - [Example](#example-5)
-                - [Sample](#sample-5)
-            - [History](#history)
-                - [Usage](#usage-6)
-                - [Example](#example-6)
-                - [Sample](#sample-6)
-            - [Exit](#exit)
-                - [Usage](#usage-7)
-                - [Example](#example-7)
-                - [Sample](#sample-7)
+    - [Interactive Mode Commands](#interactive-mode-commands)
+        - [Buy](#buy)
+        - [Sell](#sell)
+        - [Stocks](#stocks)
+        - [Help](#help)
+        - [History](#history)
+        - [Exit](#exit)
 - [License](#license)
 
 <br />
@@ -49,6 +25,8 @@ This repository is a technical test for a Senior Back-end Software Engineer role
 
 <details>
 <summary>Overview</summary>
+
+<br />
 
 A stockbroker needs to keep track of trade coming from investors and record them to trade books. If there is any existing trade book for any incoming order, then the stockbroker needs to increase or decrease the volume of the order. If there’s no existing trade book, then the stockbroker needs to create one.
 
@@ -63,6 +41,8 @@ A trade book is a record entry, which has the following data:
 
 <details>
 <summary>Problem Statement</summary>
+
+<br />
 
 Create a command-line application to record incoming trade from investors. To record an order via a command line, a user shall issue a command with parameters of action of the trade (it is either buy or sell), the stock code, the price of the trade, and the volume of the trade.
 
@@ -97,6 +77,8 @@ sell,AAPL,1000.10,10
 <details>
 <summary>Constraints</summary>
 
+<br />
+
 - Stock code is a 4 letter code.
 - Stock code is all upper case.
 - A trade price is a number with 2 decimal points, with a minimum of 0.50.
@@ -107,6 +89,8 @@ sell,AAPL,1000.10,10
 
 <details>
 <summary>Examples</summary>
+
+<br />
 
 Example of invoking the application by supplying a file path to read:
 
@@ -138,17 +122,15 @@ Where `buy` is the trade action, `AAPL` is the stock code, `1000.00` is the trad
 
 Stockbroker CLI is a command-line tool designed to help stockbrokers manage trade orders from investors. The tool allows the user to record buy and sell trades, adjusting the volume of existing orders when necessary or creating new records if no matching trade exists.
 
-The CLI tool persists trade information in a file called orders.csv, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user.
-
-It offers two modes of operation:
+The CLI tool persists trade information in a file called orders.csv, and verifies stock codes against a file named `stock_codes.csv`. In case of invalid input, appropriate error messages are shown to guide the user. It offers two modes of operation:
 
 - [Batch mode](#run-in-batch-mode)
 
-    The script can read a file containing a list of trade orders, automatically processing each line of the file. The file should include the trade action (buy or sell), stock code, trade price, and trade volume.
+    The script can read a file containing a list of trade orders, automatically processing each line of the file. The file should include the trade type (buy or sell), stock code, trade price, and trade volume.
 
 - [Interactive mode](#run-in-interactive-mode)
 
-    The script can be run interactively in the terminal where the user is prompted to input commands for buying, selling, and viewing help.
+    The script can be run interactively in the terminal where the user is prompted to input commands for buying stock, selling stock, viewing help message, viewing recent trades from order book, and viewing a list of available stock codes.
 
 <br />
 
@@ -156,31 +138,29 @@ It offers two modes of operation:
 
 - Validate trade type
 
-<img src="/screenshots/validate_trade_type.png"/>
+    <img src="/screenshots/validate_trade_type.png"/>
 
 - Validate stock code
 
-<img src="/screenshots/validate_stock_code.png"/>
+    <img src="/screenshots/validate_stock_code.png"/>
 
 - Validate price
 
-<img src="/screenshots/validate_price.png"/>
+    <img src="/screenshots/validate_price.png"/>
 
 - Validate volume
 
-<img src="/screenshots/validate_volume.png"/>
+    <img src="/screenshots/validate_volume.png"/>
 
 <br />
 
 ### Run in Batch Mode
 
-Running the script in batch mode will add all orders inside the file that is supplied as `<filepath>` into the order book.
-
-If there is an existing order that matches the trade type, stock code, and price, it will update the volume of the existing order. Otherwise, it will add new order into the order book.
+Running the script in batch mode will add all orders inside the file that is supplied as `<filepath>` into the order book. If there is an existing order that matches the trade type, stock code, and price, it will update the volume of the existing order. Otherwise, it will add new order into the order book.
 
 <br />
 
-#### Usage
+**Usage**
 
 ```bash
 bash stockbroker.sh <filepath>
@@ -188,7 +168,7 @@ bash stockbroker.sh <filepath>
 
 <br />
 
-#### Example
+**Example**
 
 ```bash
 bash stockbroker.sh files/orders.txt
@@ -196,7 +176,7 @@ bash stockbroker.sh files/orders.txt
 
 <br />
 
-#### Sample Output
+**Sample Output**
 
 <img src="/screenshots/batch_mode.png"/>
 
@@ -204,11 +184,17 @@ bash stockbroker.sh files/orders.txt
 
 ### Run in Interactive Mode
 
-Running the script in interactive mode 
+Running the script in interactive mode allows user to input the following commands:
+    - [buy](#buy)
+    - [sell](#sell)
+    - [stocks](#stocks)
+    - [help](#help)
+    - [history](#history)
+    - [exit](#exit)
 
 <br />
 
-#### Usage
+**Usage**
 
 ```bash
 bash stockbroker.sh
@@ -217,7 +203,7 @@ bash stockbroker.sh <flag>
 
 <br />
 
-#### Example
+**Example**
 
 ```bash
 bash stockbroker.sh
@@ -227,31 +213,31 @@ bash stockbroker.sh --help
 
 <br />
 
-#### Sample Output
+**Sample Output**
 
-##### Without Flag
+- Without Flag
 
-<img src="/screenshots/interactive_mode_no_flag.png"/>
-
-<br />
-
-##### With Flag
-
-<img src="/screenshots/interactive_mode_flag_1.png"/>
-
-<img src="/screenshots/interactive_mode_flag_2.png"/>
+    <img src="/screenshots/interactive_mode_no_flag.png"/>
 
 <br />
 
-#### Interactive Mode Commands
+- With Flag
 
-##### Buy
-
-Record a new buy order or update volume of existing buy order that matches stock code and price..
+    <img src="/screenshots/interactive_mode_flag_1.png"/>
+    
+    <img src="/screenshots/interactive_mode_flag_2.png"/>
 
 <br />
 
-###### Usage
+### Interactive Mode Commands
+
+#### Buy
+
+Record a new buy order or update volume of existing buy order that matches stock code and price.
+
+<br />
+
+**Usage**
 
 ```bash
 buy <stock_code> <price> <volume>
@@ -259,7 +245,7 @@ buy <stock_code> <price> <volume>
 
 <br />
 
-###### Example
+**Example**
 
 ```bash
 buy AAPL 999.99 99
@@ -268,19 +254,19 @@ buy AAPL 1000.00 100
 
 <br />
 
-###### Sample Output
+**Sample Output**
 
 <img src="/screenshots/interactive_mode_buy.png"/>
 
 <br />
 
-##### Sell
+#### Sell
 
 Record a new sell order or update volume of existing sell order that matches stock code and price.
 
 <br />
 
-###### Usage
+**Usage**
 
 ```bash
 sell <stock_code> <price> <volume>
@@ -288,7 +274,7 @@ sell <stock_code> <price> <volume>
 
 <br />
 
-###### Example
+**Example**
 
 ```bash
 sell AAPL 999.99 99
@@ -297,19 +283,19 @@ sell AAPL 1000.10 100
 
 <br />
 
-###### Sample Output
+**Sample Output**
 
 <img src="/screenshots/interactive_mode_sell.png"/>
 
 <br /> 
 
-##### Stocks
+#### Stocks
 
 Show a list of available stock codes.
 
 <br /> 
 
-###### Usage
+**Usage**
 
 ```bash
 stocks
@@ -317,7 +303,7 @@ stocks
 
 <br />
 
-###### Example
+**Example**
 
 ```bash
 stocks
@@ -325,19 +311,19 @@ stocks
 
 <br />
 
-###### Sample Output
+**Sample Output**
 
 <img src="/screenshots/interactive_mode_stocks.png"/>
 
 <br />
 
-##### Help
+#### Help
 
 Show help message.
 
 <br />
 
-###### Usage
+**Usage**
 
 ```bash
 help                                   
@@ -345,7 +331,7 @@ help
 
 <br />
 
-###### Example
+**Example**
 
 ```bash
 help
@@ -353,19 +339,19 @@ help
 
 <br />
 
-###### Sample Output
+**Sample Output**
 
 <img src="/screenshots/interactive_mode_help.png"/>
 
 <br />
 
-##### History
+#### History
 
 Show list of recent trades from order book.
 
 <br />
 
-###### Usage
+**Usage**
 
 ```bash
 history
@@ -373,7 +359,7 @@ history
 
 <br />
 
-###### Example
+**Example**
 
 ```bash
 history
@@ -381,19 +367,19 @@ history
 
 <br />
 
-###### Sample Output
+**Sample Output**
 
 <img src="/screenshots/interactive_mode_history.png"/>
 
 <br />
 
-##### Exit
+#### Exit
 
 Exit the program.
 
 <br />
 
-###### Usage
+**Usage**
 
 ```bash
 exit                                   
@@ -401,7 +387,7 @@ exit
 
 <br />
 
-###### Example
+**Example**
 
 ```bash
 exit
@@ -409,7 +395,7 @@ exit
 
 <br />
 
-###### Sample Output
+**Sample Output**
 
 <img src="/screenshots/interactive_mode_exit.png"/>
 
